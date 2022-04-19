@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    <div class="container">
+        <div class="left">
+            <h1>Register</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            <form action="/new_user" method="post">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name">
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+                <label for="password">Password:</label>
+                <input type="text" name="password">
+                <label for="confirm">Confirm Password:</label>
+                <input type="text" name="confirm">
+                <input type="submit" value="Register">
+            </form>
+        </div>
+        <div class="right">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+                <label for="password">Password:</label>
+                <input type="text" name="password">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    {% endwith %}
+</body>
+</html>
